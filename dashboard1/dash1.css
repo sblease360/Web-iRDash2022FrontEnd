@@ -1,0 +1,268 @@
+html, body{
+    font-family: 'Rajdhani', sans-serif;
+    background-color: black;
+    overflow: hidden;
+}
+
+/* Layout helpers */
+/* .x{
+    box-shadow: inset 0px 0px 0px 1px black;
+    background-color: cadetblue;
+}
+
+.y{
+    box-shadow: inset 0px 0px 0px 1px black;
+    background-color:darkorange;
+} */
+
+
+.vh-100{
+    min-height: 100vh;
+}
+
+.mh-100{
+    min-height: 100%;
+}
+
+.fh {
+    height: 100%;
+}
+
+#top-spacer {
+    height: 3px;
+}
+
+.rev-boundary-indicator{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+
+}
+
+/* #rev-boundary-1{
+    height: 18%;
+    border-bottom: 2px solid rgb(65, 127, 168);
+}
+
+#rev-boundary-2{
+    height: 15%;
+    border-bottom: 2px solid rgb(65, 168, 159);
+}
+
+#rev-boundary-3{
+    height: 12%;
+    border-bottom: 2px solid rgb(82, 168, 65);
+}
+
+#rev-boundary-4{
+    height: 9%;
+    border-bottom: 2px solid rgb(149, 168, 65);
+}
+
+#rev-boundary-5{
+    height: 6%;
+    border-bottom: 2px solid rgb(168, 144, 65);
+}
+
+#rev-boundary-6{
+    height: 3%;
+    border-bottom: 2px solid rgb(168, 123, 65);
+} */
+
+#redline{
+    height: 0.5%;
+    background-color: rgb(182, 21, 0);
+    z-index: 20;
+    color: rgb(187, 116, 9);
+}
+
+#rev-counter-blank{
+    position: absolute;
+    top: -80px;
+    height: 40%;
+    width: 56%;
+    left: 22%;
+    background-color: rgb(20,20,20);
+    z-index: 1;
+    transform: perspective(3px) rotatex(1deg);
+}
+
+#rev-counter-bar{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(68, 68, 68);
+    position: absolute;
+    bottom: 0;
+    height: 20%;
+    z-index: 2;
+}
+
+#gear{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+    z-index: 10;
+    color: white;
+    font-weight: 900;
+    font-size: 23em;
+    line-height: 1.1em;
+    text-align: center;
+}
+
+#speed-area{
+    width: 100%;
+    position: absolute;
+    height: 20%;
+    top: 1%;
+    font-size: 3.4em;
+    text-align: center;
+    z-index: 5;
+}
+
+#rpm{
+    width: 100%;
+    color: white;
+    position: absolute;
+    text-align: center;
+    bottom: 0;
+    font-size: 3em;
+    letter-spacing: 0.2em;
+    height: 15%;
+    z-index: 12;
+}
+
+.value{
+    color: white;
+    font-weight: 600;
+}
+
+.unit {
+    color:rgb(129, 129, 129);
+    font-weight: 300;
+}
+
+#right-spacer{
+    max-width: 4.2%;
+}
+
+
+#middle-column{
+    max-width: 27%;
+    position: absolute;
+    left: 34.4%;
+    background-color:rgb(20, 20, 20)
+}
+
+#middle-column-spacer{
+    max-width: 28.2%;
+}
+
+#left-column{
+    border-right: 1px solid rgb(129, 129, 129);
+    z-index: 15;
+    background-color: black;
+}
+
+#right-column{    
+    border-left: 1px solid rgb(129, 129, 129);
+    z-index: 15;
+    background-color: black;
+}
+
+.fuel-section{
+    font-size: 2.6em;  
+}
+
+.label{
+    color: rgb(129, 129, 129);
+    font-size: 25px;
+    font-weight: 400;
+}
+
+.table-label{
+    color: rgb(129, 129, 129);
+    font-size: 25px;
+    font-weight: 400;
+    text-align: center;
+}
+
+
+#usage-label{
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: 400;
+}
+
+#usage-label-spacer{
+    font-size: 10px;
+    
+}
+
+.fuel-usage-row{
+    text-align: center;
+}
+
+.vertical{
+    writing-mode:tb-rl;
+    transform: rotate(180deg);
+    white-space:nowrap;
+    display:block;
+    bottom:0;
+    width:30px;
+    height:42px;
+    line-height: 1.2em;
+    font-size: 1.2em;
+    font-weight: 500;
+    letter-spacing: 0;
+
+}
+
+#session-time-label{
+    font-size: 1.5em;
+    line-height: 2em;
+}
+
+.lap-info-label{
+    font-size: 1.4em;
+    line-height: 1.8em;
+    font-weight: 400;
+    text-align: center;
+}
+
+.fuel-val{
+    font-size: 40px;
+    line-height: 55px;
+}
+
+.fuel-val-2{
+    font-size: 40px;
+    line-height: 55px;
+    text-align: center;
+}
+
+.fuel-value-area{
+    text-align: right;
+}
+
+#sessionTimeRemaining{
+    text-align: right;
+    font-size: 40px;
+}
+
+#inc-area{
+    text-align: right;
+    font-size: 40px;
+}
+
+#session-time-label{
+    text-align: left;
+    line-height: 38px;
+}
+
+
+#inc-label{
+    text-align: left;
+    line-height: 38px;
+}

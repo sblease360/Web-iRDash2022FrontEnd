@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset=utf-8>
+  <title></title>
+  <link rel="stylesheet" href="../bootstrap-grid.css"></style>
+  <link rel="stylesheet" href="dash1.css"></style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+  <script src="dash1.js"></script>
+</head>
+<body onload="loadingRoutine()" onclick="toggleFullScreen()" class="m-0 p-0 vh-100">
+  <div class="row m-0 p-0">
+    <div class="col m-0 p-0" id="top-spacer">a</div>
+  </div>
+  <div class="x row m-0 p-0 vh-100">
+    <div class="x col m-0 p-0">
+      <div class="row m-0 p-0">
+        <div class="col m-0 p-0 vh-100" id="left-column">
+
+          <div class="row m-0 p-0">
+            <div class="col m-0 p-0 table-label">Valve</div>
+            <div class="col m-0 p-0 table-label">Bias</div>
+            <div class="col m-0 p-0 table-label">ABS</div>
+          </div>
+
+          <div class="row m-0 p-0">
+            <div class="col m-0 p-0 fuel-val-2" id="">
+              <span class="value fuel-val" id="peakBrakeBias">5</span>
+            </div>
+            <div class="col m-0 p-0 fuel-val-2" id="">
+              <span class="value fuel-val" id="brakeBias">55.5</span><span class="unit" id="fuelUnit">%</span>
+            </div>
+            <div class="col m-0 p-0 fuel-val-2" id="">
+              <span class="value fuel-val" id="absSetting">3</span>
+            </div>
+          </div>
+
+          <div class="row m-0 p-0" id="">
+            <div class="col m-0 p-0 label" id="session-time-label">Session Time Remaining</div>
+          </div>
+          <div class="row m-0 p-0" id="">
+            <div class="col m-0 py-0 px-2 value" id="sessionTimeRemaining">00:00:00</div>
+          </div>
+
+          <div class="row m-0 p-0" id="">
+            <div class="col m-0 p-0 label px-2" id="inc-label">Incidents</div>
+          </div>
+          <div class="row m-0 p-0" id="">
+            <div class="col m-0 py-0 px-2 value" id="inc-area">
+              <span id="incidents">0</span>/<span id="incLimit">&infin;</span>
+            </div>
+          </div>
+
+          <div class="row m-0 p-0">
+            <div class="col m-0 p-0 table-label">Track</div>
+            <div class="col m-0 p-0 table-label">Air</div>
+          </div>
+
+          <div class="row m-0 p-0">
+            <div class="col m-0 p-0 fuel-val-2" id="">
+              <span class="value fuel-val" id="trackTemp">35.6</span><span class="unit" id="fuelUnit">&#176;C</span>
+            </div>
+            <div class="col m-0 p-0 fuel-val-2" id="">
+              <span class="value fuel-val" id="airTemp">29.4</span><span class="unit" id="fuelUnit">&#176;C</span>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col m-0 p-0" id="middle-column-spacer">
+          <!-- This is here solely to space the outer columns so that the real middle 
+            column can use absolute positioning to enable z-index for the rev counter -->
+        </div> 
+        <div class="y m-0 p-0 vh-100" id="middle-column">
+          <div class="rev-counter m-0 p-0" id="rev-counter-bar"></div>
+          <div class="rev-boundary-indicator m-0 p-0" id="rev-boundary-1"></div>
+          <div class="rev-boundary-indicator m-0 p-0" id="rev-boundary-2"></div>
+          <div class="rev-boundary-indicator m-0 p-0" id="rev-boundary-3"></div>
+          <div class="rev-boundary-indicator m-0 p-0" id="rev-boundary-4"></div>
+          <div class="rev-boundary-indicator m-0 p-0" id="rev-boundary-5"></div>
+          <div class="rev-boundary-indicator m-0 p-0" id="rev-boundary-6"></div>
+          <div class="rev-boundary-indicator m-0 p-0" id="redline"></div>
+          <div class="m-0 p-0" id="rev-counter-blank"></div>
+          <div class="m-0 p-0" id="gear">5</div>
+          <div class="m-0 p-0" id="speed-area"><span class="value speed" id="speed">123</span><span class="unit speed" id="speed-unit">kph</span></div>
+          <div class="m-0 p-0" id="rpm">1234</div>
+        </div>
+        <div class="col m-0 p-0 vh-100" id="right-column">
+          <div class="row m-0 p-0">
+            <div class="col m-0 p-0 label" id="fuel-level-label">Fuel</div>
+            <div class="col m-0 py-0 px-2 fuel-section fuel-value-area" id="">
+              <span class="value" id="fuelLevel">40</span><span class="unit" id="fuelUnit">L</span>
+            </div>
+          </div>
+          <div class="row m-0 p-0">
+            <div class="col m-0 p-0 label" id="fuel-level-label">Fuel Laps</div>
+            <div class="col m-0 py-0 px-2 fuel-section fuel-value-area" id="">
+              <span class="value fuel-val" id="stintLapsRemaining">4.9</span>
+            </div>
+          </div>
+          <div class="row m-0 p-0">
+            <div class="col m-0 p-0 label" id="fuel-level-label">Session Laps</div>
+            <div class="col m-0 py-0 px-2 fuel-section fuel-value-area" id="">
+              <span class="value fuel-val" id="sessionLapsRemaining">14.3</span>
+            </div>
+          </div>
+
+          <div class="row m-0 p-0">
+            <div class="col-1 m-0 p-0"></div>
+            <div class="col m-0 p-0 table-label">Usage</div>
+            <div class="col m-0 p-0 table-label">Needed</div>
+          </div>
+
+          <div class="row m-0 p-0">
+            <div class="col-2 m-0 p-0 label vertical" id="">Last</div>
+            <div class="col m-0 p-0 fuel-val-2" id="">
+              <span class="value fuel-val" id="lastLapFuelUsage">2.52</span><span class="unit" id="fuelUnit">L</span>
+            </div>
+            <div class="col m-0 p-0 fuel-val-2" id="">
+              <span class="value fuel-val" id="fuelNeededLastLap">2.52</span><span class="unit" id="fuelUnit">L</span>
+            </div>
+          </div>
+
+          <div class="row m-0 p-0">
+            <div class="col-2 m-0 p-0 label vertical" id="">Avg</div>
+            <div class="col m-0 p-0 fuel-val-2" id="">
+              <span class="value fuel-val" id="avgFuelUsageSession">2.52</span><span class="unit" id="fuelUnit">L</span>
+            </div>
+            <div class="col m-0 p-0 fuel-val-2" id="">
+              <span class="value fuel-val" id="fuelNeededAvgLap">2.52</span><span class="unit" id="fuelUnit">L</span>
+            </div>
+          </div>
+
+          <div class="row m-0 p-0">
+            <div class="col-2 m-0 p-0 label vertical" id="">Peak</div>
+            <div class="col m-0 p-0 fuel-val-2" id="">
+              <span class="value fuel-val" id="peakLapFuelUsage">2.52</span><span class="unit" id="fuelUnit">L</span>
+            </div>
+            <div class="col m-0 p-0 fuel-val-2" id="">
+              <span class="value fuel-val" id="fuelNeededPeakLap">2.52</span><span class="unit" id="fuelUnit">L</span>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+        </div>
+        <div>  
+
+          <div class="row m-0 p-0">
+            <div class="col-1 m-0 p-0 label vertical" id="vertical-taller">usage</div>
+            <div class="col m-0 p-0">
+              <div class="row m-0 p-0">
+                <div class="col m-0 p-0 label" id="usage-label">Last</div>
+                <div class="col m-0 p-0 label" id="usage-label">Peak</div>
+                <div class="col m-0 p-0 label" id="usage-label">Avg</div>
+              </div>
+              <div class="row m-0 p-0 fuel-usage-row">
+                <div class="col m-0 p-0 label" id=""><span class="value fuel-val" id="lastLapFuelUsage">2.52</span><span class="unit" id="fuelUnit">L</span></div>
+                <div class="col m-0 p-0 label" id=""><span class="value fuel-val" id="peakLapFuelUsage">2.67</span><span class="unit" id="fuelUnit">L</span></div>
+                <div class="col m-0 p-0 label" id=""><span class="value fuel-val" id="avgFuelUsageStint">2.58</span><span class="unit" id="fuelUnit">L</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="row m-0 p-0">
+            <div class="col-1 m-0 p-0 label vertical">needed</div>
+            <div class="col m-0 p-0">
+              <div class="row m-0 p-0">
+                <div class="col m-0 p-0 label" id="usage-label-spacer">&nbsp;</div>
+              </div>
+              <div class="row m-0 p-0 fuel-usage-row">
+                <div class="col m-0 p-0 label" id=""><span class="value fuel-val" id="lastLapFuelUsage">0</span><span class="unit" id="fuelUnit">L</span></div>
+                <div class="col m-0 p-0 label" id=""><span class="value fuel-val" id="peakLapFuelUsage">0</span><span class="unit" id="fuelUnit">L</span></div>
+                <div class="col m-0 p-0 label" id=""><span class="value fuel-val" id="avgFuelUsageStint">0</span><span class="unit" id="fuelUnit">L</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row m-0 p-0">
+            <div class="col m-0 p-0 label lap-info-label" id="session-time-label">Session Time Remaining</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="y col m-0 p-0" id="right-spacer"></div>
+  </div>
+
+</body>
+</html>
